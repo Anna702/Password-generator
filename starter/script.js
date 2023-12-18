@@ -88,7 +88,14 @@ const upperCasedCharacters = [
   "Z",
 ];
 
+//ask user about the password length
+//ask about character options
+//take random elements from random arrays password length times
+//create a password with it
+
 // Function to prompt user for password options
+
+//The passwordInput var should be declared outside the function so it can be used in other parts of the code.
 let passwordInput = {};
 
 function getPasswordOptions() {
@@ -161,6 +168,8 @@ function generatePassword() {
       trueInputs.push(key);
     }
   }
+
+  // creating array with chosen characters
   let inputs = [];
   for (let i = 0; i < trueInputs.length; i++) {
     if (trueInputs[i] === "lowerChars") {
@@ -173,6 +182,9 @@ function generatePassword() {
       inputs.push(numericCharacters);
     }
   }
+
+  //we need counter to prevent an infinite loop, the counter should be less than the password length
+
   let counter = 0;
   let newPassword = [];
   while (
@@ -184,14 +196,10 @@ function generatePassword() {
     }
     counter++;
   }
-  //The generatePassword function should return a string, not an array. join('') will concatenate the array elements into a string.
+
+  //The generatePassword function should return a string, not an array. I used join('') to concatenate the array elements into a string.
   return newPassword.join("");
 }
-
-//ask user about the password length
-//ask about character options
-// take random elements from random arrays password length times
-//create a password with it
 
 // Get references to the #generate element
 const generateBtn = document.querySelector("#generate");
