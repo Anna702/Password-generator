@@ -102,13 +102,13 @@ How many characters would you like your password to be? Please provide a number 
     alert(
       `The entered value is not a number or is not within the valid range. Please provide a number between 8 and 128.`
     );
-// Recursive call to get a valid input
+    // Recursive call to get a valid input
     return getPasswordOptions();
   }
 
   alert(`Let's choose which character types you want to include.`);
 
-// Collect info about characters as booleans.
+  // Collect info about characters as booleans.
   passwordInput.lowerChars = confirm(
     `Do you want to include lowercase characters? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
   );
@@ -122,7 +122,7 @@ How many characters would you like your password to be? Please provide a number 
     `Do you want to include special characters ($@%&*, etc)? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
   );
 
-//checking if user chose at least one character type
+  //checking if user chose at least one character type
   if (
     passwordInput.lowerChars === true ||
     passwordInput.upperChars === true ||
@@ -133,7 +133,7 @@ How many characters would you like your password to be? Please provide a number 
     return passwordInput;
   } else {
     alert("At least one character type should be selected. Please start over.");
-// Recursive call to get a valid input
+    // Recursive call to get a valid input
     return getPasswordOptions();
   }
 }
@@ -141,10 +141,26 @@ How many characters would you like your password to be? Please provide a number 
 getPasswordOptions();
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  // generating random array index
+  const randomIndex = Math.floor(Math.random() * arr.length);
+
+  // getting random element from array
+  const randomElement = arr[randomIndex];
+  console.log(randomElement);
+  return randomElement;
+}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  // creating array to store inputs with a true value
+  let trueInputs = [];
+  for (let key in passwordInput) {
+    if (passwordInput[key] === true) {
+      trueInputs.push(key);
+    }
+  }
+}
 
 //ask user about the password length
 //ask about character options
