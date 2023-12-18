@@ -99,6 +99,8 @@ const upperCasedCharacters = [
 let passwordInput = {};
 
 function getPasswordOptions() {
+  alert(`Let's generate your new password!`);
+
   let passwordLength = parseInt(
     prompt(`
 How many characters would you like your password to be? Please provide a number between 8 and 128.`)
@@ -129,6 +131,8 @@ How many characters would you like your password to be? Please provide a number 
   passwordInput.specialChars = confirm(
     `Do you want to include special characters ($@%&*, etc)? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
   );
+
+  alert(`Be ready to press the 'Generate Password' button, OK?`);
 
   //checking if user chose at least one character type
   if (
