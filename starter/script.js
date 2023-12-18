@@ -89,13 +89,67 @@ const upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {}
+function getPasswordOptions() {
+  let passwordInput = {};
+  let passwordLength = parseInt(
+    prompt(`
+How many characters would you like your password to be? Please provide a number between 8 and 128.`)
+  );
+
+  if (!isNaN(passwordLength) && passwordLength >= 8 && passwordLength <= 128) {
+    passwordInput.passwordLength = passwordLength;
+  } else {
+    alert(
+      `The entered value is not a number or is not within the valid range. Please provide a number between 8 and 128.`
+    );
+// Recursive call to get a valid input
+    return getPasswordOptions();
+  }
+
+  alert(`Let's choose which character types you want to include.`);
+
+// Collect info about characters as booleans.
+  passwordInput.lowerChars = confirm(
+    `Do you want to include lowercase characters? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
+  );
+  passwordInput.upperChars = confirm(
+    `Do you want to include uppercase characters? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
+  );
+  passwordInput.numericChars = confirm(
+    `Do you want to include numeric characters? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
+  );
+  passwordInput.specialChars = confirm(
+    `Do you want to include special characters ($@%&*, etc)? Press 'Cancel' for 'No' and 'Ok' for 'Yes'.`
+  );
+
+//checking if user chose at least one character type
+  if (
+    passwordInput.lowerChars === true ||
+    passwordInput.upperChars === true ||
+    passwordInput.numericChars === true ||
+    passwordInput.specialChars === true
+  ) {
+    console.log(passwordInput);
+    return passwordInput;
+  } else {
+    alert("At least one character type should be selected. Please start over.");
+// Recursive call to get a valid input
+    return getPasswordOptions();
+  }
+}
+
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
 
 // Function to generate password with user input
 function generatePassword() {}
+
+//ask user about the password length
+//ask about character options
+// take random elements from random arrays password length times
+//create a password with it
 
 // Get references to the #generate element
 const generateBtn = document.querySelector("#generate");
