@@ -89,8 +89,9 @@ const upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+let passwordInput = {};
+
 function getPasswordOptions() {
-  let passwordInput = {};
   let passwordLength = parseInt(
     prompt(`
 How many characters would you like your password to be? Please provide a number between 8 and 128.`)
@@ -162,23 +163,29 @@ function generatePassword() {
   }
   let inputs = [];
   for (let i = 0; i < trueInputs.length; i++) {
-    if (trueInputs[i] === lowerChars) {
-        inputs.push(lowerCasedCharacters);
-    } else if (trueInputs[i] === upperChars) {
-        inputs.push(upperCasedCharacters);
-    } else if (trueInputs[i] === specialChars) {
-        inputs.push(specialCharacters);
-    } else (trueInputs[i] === numericChars) {
-        inputs.push(numericCharacters);
+    if (trueInputs[i] === "lowerChars") {
+      inputs.push(lowerCasedCharacters);
+    } else if (trueInputs[i] === "upperChars") {
+      inputs.push(upperCasedCharacters);
+    } else if (trueInputs[i] === "specialChars") {
+      inputs.push(specialCharacters);
+    } else if (trueInputs[i] === "numericChars") {
+      inputs.push(numericCharacters);
     }
   }
+  let counter = 0;
   let newPassword = [];
-  while (newPassword.length <= passwordInput.passwordLength) {
-  for (let i = 0; i < inputs.length; i++) {
-    newPassword.push(getRandom(inputs[i]));
+  while (
+    newPassword.length <= passwordInput.passwordLength &&
+    counter < passwordInput.passwordLength
+  ) {
+    for (let i = 0; i < inputs.length; i++) {
+      newPassword.push(getRandom(inputs[i]));
+    }
+    counter++;
   }
-  }
-  return newPassword;
+  //The generatePassword function should return a string, not an array. join('') will concatenate the array elements into a string.
+  return newPassword.join("");
 }
 
 //ask user about the password length
