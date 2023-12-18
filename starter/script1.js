@@ -30,7 +30,7 @@ const lowerCasedCharacters = [
   "b",
   "c",
   "d",
-  "e",
+  "e", 
   "f",
   "g",
   "h",

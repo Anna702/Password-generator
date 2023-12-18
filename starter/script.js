@@ -160,6 +160,25 @@ function generatePassword() {
       trueInputs.push(key);
     }
   }
+  let inputs = [];
+  for (let i = 0; i < trueInputs.length; i++) {
+    if (trueInputs[i] === lowerChars) {
+        inputs.push(lowerCasedCharacters);
+    } else if (trueInputs[i] === upperChars) {
+        inputs.push(upperCasedCharacters);
+    } else if (trueInputs[i] === specialChars) {
+        inputs.push(specialCharacters);
+    } else (trueInputs[i] === numericChars) {
+        inputs.push(numericCharacters);
+    }
+  }
+  let newPassword = [];
+  while (newPassword.length <= passwordInput.passwordLength) {
+  for (let i = 0; i < inputs.length; i++) {
+    newPassword.push(getRandom(inputs[i]));
+  }
+  }
+  return newPassword;
 }
 
 //ask user about the password length
