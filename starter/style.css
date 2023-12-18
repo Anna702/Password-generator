@@ -12,9 +12,16 @@ body,
   padding: 0;
 }
 
+h1 {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-image: url("/assets/password-back.png");
+  background-size: cover;
 }
 
 .wrapper {
