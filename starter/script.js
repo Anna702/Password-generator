@@ -141,7 +141,6 @@ How many characters would you like your password to be? Please provide a number 
     passwordInput.numericChars === true ||
     passwordInput.specialChars === true
   ) {
-    console.log(passwordInput);
     return passwordInput;
   } else {
     alert("At least one character type should be selected. Please start over.");
@@ -159,7 +158,6 @@ function getRandom(arr) {
 
   // getting random element from array
   const randomElement = arr[randomIndex];
-  console.log(randomElement);
   return randomElement;
 }
 
